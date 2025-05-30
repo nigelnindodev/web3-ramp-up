@@ -31,6 +31,7 @@ contract Lock {
         require(block.timestamp >= unlockTime, "You can't withdraw yet");
         require(msg.sender == owner, "You aren't the owner");
 
+        //TODO: Quick question here, should we be emitting the Withdrawal event before the actual transfer is complete? What is the transfer fails?
         emit Withdrawal(address(this).balance, block.timestamp);
 
         owner.transfer(address(this).balance);
