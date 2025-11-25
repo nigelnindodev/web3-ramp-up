@@ -3,12 +3,12 @@ pragma solidity ^0.8.28;
 
 contract Coin {
     // public will make variables accessible from other contracts
-    // the declaration below roughly transaltes to:
+    // the declaration below roughly translates to:
     // function minter() external view returns (address) { return minter; }
 
     // external means the function can only be called from outside the
     // contract. Can't be called using the this.minter() syntax. More gas
-    // effiecient than `public` for functions that don't need to be called
+    // efficient than `public` for functions that don't need to be called
     // internally.
 
     // view means that the function promises not to modify the blockchain
@@ -20,7 +20,7 @@ contract Coin {
     // mappings can be seen as hash tables
     // initilaized in such a way that every key exists and is mapped to
     // a value whose byte representation is all zeros.
-    // it is not posssible to obtain a list of all keys in a mapping, or a
+    // it is not possible to obtain a list of all keys in a mapping, or a
     // list of all values.
     mapping(address => uint) public balances;
 
