@@ -34,18 +34,18 @@ contract Coin {
         minter = msg.sender;
     }
 
-    function mint(address receiver, uint amount) public {
+    function mint(address _receiver, uint _amount) public {
         require(msg.sender == minter); // can only be called by contract creator
-        balances[receiver] += amount;
+        balances[_receiver] += _amount;
     }
 
-    function send(address receiver, uint amount) public {
+    function send(address _receiver, uint _amount) public {
         require(
-            amount <= balances[msg.sender],
-            InsufficientBalance(amount, balances[msg.sender])
+            _amount <= balances[msg.sender],
+            InsufficientBalance(_amount, balances[msg.sender])
         );
-        balances[msg.sender] -= amount;
-        balances[receiver] += amount;
-        emit Sent(msg.sender, receiver, amount);
+        balances[msg.sender] -= _amount;
+        balances[_receiver] += _amount;
+        emit Sent(msg.sender, _receiver, _amount);
     }
 }
